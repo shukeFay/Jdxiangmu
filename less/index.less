@@ -1,0 +1,113 @@
+/* less的嵌套 
+嵌套规则和HTML一样 把子选择器往里面写
+1. 代码结构清晰美观
+2. 代码方便维护扩展*/
+
+/* base文件*/
+@import 'base.less';
+
+/*头部区域样式*/
+#header {
+    /* 使用弹性布局 */
+    display: flex;
+    background-color: red;
+
+    .left {
+        width: 80px;
+        height: 40px;
+        display: flex;
+        /* 主轴居中 */
+        justify-content: center;
+        /* 副轴居中 */
+        align-items: center;
+
+        a {
+            background: url(../images/sprites.png);
+            /* 因为所有图片都是2倍图 背景图也不例外也要缩小1半 */
+            /* 设置背景图大小 */
+            background-size: 200px 200px;
+
+            /* 精灵图定位 */
+            background-position: 0 -110px;
+            width: 58px;
+            height: 21px;
+            display: block;
+
+        }
+    }
+
+    .center {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+        form {
+            width: 100%;
+            position: relative;
+
+            i {
+                width: 21px;
+                height: 21px;
+                background: url(../images/sprites.png);
+                background-size: 200px 200px;
+                background-position: -58px -110px;
+                position: absolute;
+                top: 5px;
+                left: 6px;
+
+            }
+
+            input {
+                width: 100%;
+                height: 30px;
+                border-radius: 15px;
+                padding-left: 30px;
+
+            }
+        }
+    }
+
+    .right {
+        width: 50px;
+        height: 40px;
+
+        a {
+            display: block;
+            color: #fff;
+            text-align: center;
+            line-height: 40px;
+        }
+    }
+}
+
+/* 轮播图区域样式*/
+
+
+/* 导航条区域样式*/
+#nav {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            width: 25%;
+
+            a {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 5px 0;
+
+                img {
+                    width: 40px;
+
+                }
+
+                p {
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+}

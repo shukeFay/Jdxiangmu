@@ -3,6 +3,7 @@
     /* 使用弹性布局 */
     display: flex;
     background-color: red;
+
 }
 
 #header .left {

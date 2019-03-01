@@ -26,10 +26,15 @@ dd {
     box-sizing: border-box;
      /* 设置移动端点击高亮背景色  去掉就设置为透明颜色即可*/
      -webkit-tap-highlight-color: transparent;
-     /* 设置文字允许字体小于12px; */
+     /* 设置文字允许字体小于0.12rem; */
      -webkit-text-size-adjust: none;
      /* 防止文字的锯齿样式 */
      -webkit-font-smoothing: antialiased;
+}
+@main-color: #e93b3d;
+
+html {
+    font-size: 26.6667vw;
 }
 
 a {
@@ -63,11 +68,10 @@ h4 {
 }
 
 body {
-    background: #fff;
-    font: 12px/100% "微软雅黑";
-    font-size: 14px;
+    background: #fff;  
+    font-size: 0.14rem;
     font-family: -apple-system, Helvetica, sans-serif;
-    line-height: 1.5;
+     line-height: 1.5;
 }
 
 .clearfix::after {
@@ -80,4 +84,18 @@ body {
 
 .clearfix {
     *zoom: 1;
+}
+
+// 定义一些公共边框
+.bl {
+    border-left: 1px solid #ccc;
+}
+.br {
+    border-right: 1px solid #ccc;
+}
+.bt {
+    border-top: 1px solid #ccc;
+}
+.bb {
+    border-bottom: 1px solid #ccc;
 }

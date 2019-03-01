@@ -30,10 +30,13 @@ dd {
   box-sizing: border-box;
   /* 设置移动端点击高亮背景色  去掉就设置为透明颜色即可*/
   -webkit-tap-highlight-color: transparent;
-  /* 设置文字允许字体小于12px; */
+  /* 设置文字允许字体小于0.12rem; */
   -webkit-text-size-adjust: none;
   /* 防止文字的锯齿样式 */
   -webkit-font-smoothing: antialiased;
+}
+html {
+  font-size: 26.6667vw;
 }
 a {
   text-decoration: none;
@@ -61,8 +64,7 @@ h4 {
 }
 body {
   background: #fff;
-  font: 12px/100% "微软雅黑";
-  font-size: 14px;
+  font-size: 0.14rem;
   font-family: -apple-system, Helvetica, sans-serif;
   line-height: 1.5;
 }
@@ -76,15 +78,32 @@ body {
 .clearfix {
   *zoom: 1;
 }
+.bl {
+  border-left: 1px solid #ccc;
+}
+.br {
+  border-right: 1px solid #ccc;
+}
+.bt {
+  border-top: 1px solid #ccc;
+}
+.bb {
+  border-bottom: 1px solid #ccc;
+}
 /*头部区域样式*/
 #header {
+  position: fixed;
+  /* 定位了会脱标不会有默认100%宽度由内容撑开 要手动添加width100% */
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 99;
   /* 使用弹性布局 */
   display: flex;
-  background-color: red;
 }
 #header .left {
-  width: 80px;
-  height: 40px;
+  width: 0.8rem;
+  height: 0.4rem;
   display: flex;
   /* 主轴居中 */
   justify-content: center;
@@ -95,11 +114,11 @@ body {
   background: url(../images/sprites.png);
   /* 因为所有图片都是2倍图 背景图也不例外也要缩小1半 */
   /* 设置背景图大小 */
-  background-size: 200px 200px;
+  background-size: 2rem 2rem;
   /* 精灵图定位 */
-  background-position: 0 -110px;
-  width: 58px;
-  height: 21px;
+  background-position: 0 -1.1rem;
+  width: 0.58rem;
+  height: 0.21rem;
   display: block;
 }
 #header .center {
@@ -112,32 +131,35 @@ body {
   position: relative;
 }
 #header .center form i {
-  width: 21px;
-  height: 21px;
+  width: 0.21rem;
+  height: 0.21rem;
   background: url(../images/sprites.png);
-  background-size: 200px 200px;
-  background-position: -58px -110px;
+  background-size: 2rem 2rem;
+  background-position: -0.58rem -1.1rem;
   position: absolute;
-  top: 5px;
-  left: 6px;
+  top: 0.05rem;
+  left: 0.06rem;
 }
 #header .center form input {
   width: 100%;
-  height: 30px;
+  height: 0.3rem;
   border-radius: 15px;
-  padding-left: 30px;
+  padding-left: 0.3rem;
 }
 #header .right {
-  width: 50px;
-  height: 40px;
+  width: 0.5rem;
+  height: 0.4rem;
 }
 #header .right a {
   display: block;
   color: #fff;
   text-align: center;
-  line-height: 40px;
+  line-height: 0.4rem;
 }
 /* 轮播图区域样式*/
+#section img {
+  width: 100%;
+}
 /* 导航条区域样式*/
 #nav ul {
   display: flex;
@@ -151,11 +173,133 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5px 0;
+  padding: 0.05rem 0;
 }
 #nav ul li a img {
-  width: 40px;
+  width: 0.4rem;
 }
 #nav ul li a p {
-  margin-top: 5px;
+  margin-top: 0.05rem;
+}
+#main .seckill .title {
+  display: flex;
+  justify-content: space-between;
+  line-height: 0.3rem;
+}
+#main .seckill .title .left {
+  display: flex;
+}
+#main .seckill .title .left .seckill-icon {
+  width: 0.2rem;
+  height: 0.25rem;
+  margin-left: 0.05rem;
+}
+#main .seckill .title .left .seckill-name {
+  margin-left: 0.05rem;
+  /* 使用jd主体色变量 */
+  color: #e93b3d;
+}
+#main .seckill .title .left .seckill-downtime {
+  margin-left: 0.05rem;
+}
+#main .seckill .title .left .seckill-downtime span:not(:nth-chld(3n)) {
+  display: inline-block;
+  width: 0.15rem;
+  height: 0.15rem;
+  line-height: 15;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+#main .seckill .title .right .seckill-more {
+  margin-left: 0.1rem;
+}
+#main .seckill .content ul {
+  display: flex;
+}
+#main .seckill .content ul li {
+  flex: 1;
+}
+#main .seckill .content ul li a {
+  display: block;
+  text-align: center;
+}
+#main .seckill .content ul li a img {
+  width: 1.1rem;
+  height: 1.1rem;
+}
+#main .seckill .content ul li a p {
+  text-align: center;
+  color: #e93b3d;
+  font-size: 0.12rem;
+}
+#main .seckill .content ul li a p del {
+  color: #ccc;
+}
+#main .seckill .content ul li ~ li {
+  border-left: 1px solid #ccc;
+}
+#main .market {
+  background-color: #fff;
+  margin-top: 0.1rem;
+}
+#main .market .title {
+  border-bottom: 1px solid #ccc;
+}
+#main .market .title > h4 {
+  line-height: 0.3rem;
+  padding-left: 0.3rem;
+  font-weight: normal;
+  position: relative;
+}
+#main .market .title h4::before {
+  content: '';
+  position: absolute;
+  width: 0.04rem;
+  height: 0.14rem;
+  left: 0.2rem;
+  top: 0.07rem;
+  background-color: #e93b3d;
+}
+#main .market .content {
+  display: flex;
+}
+#main .market .content .left {
+  width: 50%;
+}
+#main .market .content .left a {
+  display: block;
+}
+#main .market .content .left a img {
+  width: 100%;
+}
+#main .market .content .right {
+  width: 50%;
+}
+#main .market .content .right a {
+  display: block;
+}
+#main .market .content .right a img {
+  width: 100%;
+}
+#footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+#footer ul {
+  display: flex;
+}
+#footer ul li {
+  width: 25%;
+}
+#footer ul li a {
+  display: block;
+  text-align: center;
+}
+#footer ul li a img {
+  width: 0.65rem;
+  height: 0.5rem;
 }

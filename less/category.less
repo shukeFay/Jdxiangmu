@@ -1,0 +1,135 @@
+// 引入base文件
+@import 'base.less';
+
+/* 分类头部的图标有点不一样 单独覆盖图标样式 */
+#header {
+    background-color: #ccc;
+
+    .left {
+        width: 0.4rem;
+        height: 0.4rem;
+
+        .icon-back {
+            /* 精灵图也是2倍也要缩小 */
+            background-image: url(../images/sprites.png);
+            background-size: 2rem 2rem;
+            background-position: -0.2rem 0;
+            width: 0.2rem;
+            height: 0.2rem;
+        }
+    }
+
+    .right {
+        width: 0.4rem;
+        height: 0.4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .login {
+            background-image: url(../images/sprites.png);
+            background-size: 2rem 2rem;
+            background-position: -0.6rem 0;
+            width: 0.2rem;
+            height: 0.2rem;
+        }
+    }
+}
+
+/* 主体分类的样式 */
+#main {
+    display: flex;
+    padding-top: 0.4rem;
+    padding-bottom: 0.5rem;
+
+     // 6.67rem也是整屏高度  rem有些手机宽高比例不一样
+    // height: 6.67rem;
+    // 100vh也是整屏高度 推荐使用vh
+    height: 100vh;
+    overflow: hidden;
+
+    .category-left {
+        width: 0.85rem;
+        // left继承main的内容的高度
+        height: 100%;
+
+        .swiper-container {
+            // 给swiper-container容器滑动大容器他的高度固定和要滑动区域高度一样
+            height: 100%;
+            .swiper-slide {
+                /* swiper-slide的高度应该里面的内容文字撑开的高度
+                 设置height:auto */
+                height: auto;
+            }
+        }
+        ul {
+            li {
+                a {
+                    display: block;
+                    height: 0.45rem;
+                    text-align: center;
+                    line-height: 0.45rem;
+                    background-color: #ccc;
+                }   
+            }
+            li.active {
+                a {
+                    background-color: #fff;
+                    color: @main-color;
+                }
+            }
+        }
+    }
+    .category-right {
+        flex: 1;
+        padding: 0.07rem;
+        
+
+        // 这个样式非常重要一定要保证 子元素高度超过父元素高度
+        // 父元素高度固定从他的父元素从main继承下来
+        // 子元素高度auto 由内容撑开 ul li内容撑开
+        .swiper-container {
+            // 给swiper-container容器滑动大容器他的高度固定和要滑动区域高度一样
+           
+            height: 100%;
+            .swiper-slide {
+                /* swiper-slide的高度应该里面的内容文字撑开的高度 设置height:auto*/
+                height: auto;
+            }
+            /* 设置滚动条样式 */
+            .swiper-scrollbar {
+                right: 0;
+                width: 0.03rem;
+                background: rgba(255,0,0,0.1);
+                .swiper-scrollbar-drag {
+                    background: rgba(0,0,255,0.5);
+                }
+            }
+        }
+        .banner {
+            >img {
+                width: 100%;
+            }
+        }
+        .jd-brand {
+            margin-top: 0.1rem;
+            ul {
+                display: flex;
+                //换行
+                flex-wrap: wrap;
+                li {
+                    width: 33.33%;
+                    a {
+                        display: block;
+                        text-align: center;
+                        img {
+                            width: 0.7rem;
+                        }
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
